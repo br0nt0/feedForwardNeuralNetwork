@@ -41,6 +41,7 @@ add_executable(${TEST_EXECUTABLE})
 set(UT_DIR			                ${PROJECT_ROOT_DIR}/tests)
 target_sources(${TEST_EXECUTABLE} PRIVATE
                                     ${UT_DIR}/activationFunctionsTests.cpp
+                                    ${UT_DIR}/neuronTests.cpp
                                     ${UT_DIR}/uTestMain.cpp)
 
 target_compile_definitions(${TEST_EXECUTABLE} PRIVATE
