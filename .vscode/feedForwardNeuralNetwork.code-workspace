@@ -27,8 +27,8 @@
 			"src"
 		],
 		"c-cpp-flylint.cppcheck.extraArgs": [
-			"-j 8",
-			"--platform=win64"		
+			"-j 4",
+			"--cppcheck-build-dir=./build"	
 		],
 		"c-cpp-flylint.cppcheck.suppressions": [
 			"misra-c2012-11.6",
@@ -70,5 +70,8 @@
 		"C_Cpp.vcFormat.space.withinSquareBrackets": true,
 		"editor.autoSurround": "languageDefined",
 		"editor.formatOnType": true,
+		"files.associations": {
+			"activationfunctions.h": "c"
+		},
 	}
 }

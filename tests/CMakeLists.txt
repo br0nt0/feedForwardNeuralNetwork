@@ -32,6 +32,7 @@ target_include_directories(${EXECUTABLE} PRIVATE
 target_compile_options(${EXECUTABLE} PRIVATE
                                     ${COMMON_COMPILE_FLAGS}
                                     --coverage)
+target_link_libraries(${EXECUTABLE} "--coverage")
 
 # test executable
 set(TEST_EXECUTABLE                 ${CMAKE_PROJECT_NAME}_uTests)
@@ -39,7 +40,7 @@ add_executable(${TEST_EXECUTABLE})
 
 set(UT_DIR			                ${PROJECT_ROOT_DIR}/tests)
 target_sources(${TEST_EXECUTABLE} PRIVATE
-                                    ${UT_DIR}/neuronTests.cpp
+                                    ${UT_DIR}/activationFunctionsTests.cpp
                                     ${UT_DIR}/uTestMain.cpp)
 
 target_compile_definitions(${TEST_EXECUTABLE} PRIVATE
