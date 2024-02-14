@@ -62,6 +62,11 @@ target_link_libraries(${TEST_EXECUTABLE} PRIVATE
 add_custom_command(TARGET ${TEST_EXECUTABLE} COMMAND ./${TEST_EXECUTABLE} -c POST_BUILD)
 
 # add custom target to run gcovr
+set(OPEN_APPLICATION )
+if (UNIX)
+    set(OPEN_APPLICATION xdg-open)
+endif (UNIX)
+
 add_custom_command(OUTPUT run_gcovr_parser POST_BUILD
                     COMMAND gcovr   --root ${CMAKE_SOURCE_DIR}
                                     --branches
@@ -72,4 +77,4 @@ add_custom_command(OUTPUT run_gcovr_parser POST_BUILD
                     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
                     COMMENT "Running gcovr to produce XML and HTML coverage reports")
 add_custom_target(coverage DEPENDS ${TEST_EXECUTABLE} run_gcovr_parser )
-add_custom_command(TARGET coverage COMMAND ${CMAKE_BINARY_DIR}/coverage.html POST_BUILD)
+add_custom_command(TARGET coverage COMMAND ${OPEN_APPLICATION} ${CMAKE_BINARY_DIR}/coverage.html POST_BUILD)

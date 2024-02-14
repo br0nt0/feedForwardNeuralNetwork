@@ -74,5 +74,8 @@
 			"activationfunctions.h": "c"
 		},
 		"cmake.cmakePath": "/snap/cmake/current/bin/cmake",
+		"terminal.integrated.env.linux": {
+			"GTK_PATH": ""
+		}
 	}
 }
