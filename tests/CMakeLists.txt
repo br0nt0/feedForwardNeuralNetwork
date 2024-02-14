@@ -6,8 +6,8 @@ message(STATUS "Found CppUTest version ${CPPUTEST_VERSION}")
 
 set(CPPUTEST_LDFLAGS                "${CPPUTEST_LDFLAGS} -pthread")
 
-set(COMMON_COMPILE_FLAGS            -Og 
-                                    -g3
+set(COMMON_COMPILE_FLAGS            -O0 
+                                    -g
                                     -Wall
                                     -Wextra
                                     -Werror
@@ -33,6 +33,7 @@ target_compile_options(${EXECUTABLE} PRIVATE
                                     ${COMMON_COMPILE_FLAGS}
                                     --coverage)
 target_link_libraries(${EXECUTABLE} "--coverage")
+
 
 # test executable
 set(TEST_EXECUTABLE                 ${CMAKE_PROJECT_NAME}_uTests)
@@ -62,11 +63,13 @@ add_custom_command(TARGET ${TEST_EXECUTABLE} COMMAND ./${TEST_EXECUTABLE} -c POS
 
 # add custom target to run gcovr
 add_custom_command(OUTPUT run_gcovr_parser POST_BUILD
-                    COMMAND gcovr   --branches
+                    COMMAND gcovr   --root ${CMAKE_SOURCE_DIR}
+                                    --branches
                                     --html-details
                                     --output ${CMAKE_BINARY_DIR}/coverage.html
                                     --cobertura ${CMAKE_BINARY_DIR}/coverage.xml
                                     --cobertura-pretty
-                    WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+                    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+                    COMMENT "Running gcovr to produce XML and HTML coverage reports")
 add_custom_target(coverage DEPENDS ${TEST_EXECUTABLE} run_gcovr_parser )
 add_custom_command(TARGET coverage COMMAND ${CMAKE_BINARY_DIR}/coverage.html POST_BUILD)

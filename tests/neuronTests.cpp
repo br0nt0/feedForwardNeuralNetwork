@@ -60,6 +60,17 @@ TEST( neuron, given_zero_input_size_when_calculating_neuron_output_then_output_i
     DOUBLES_EQUAL( expected, output, 0.000000001f );
 }
 
+TEST( neuron, given_null_input_when_calculating_neuron_output_then_output_is_equal_to_zero )
+{
+    // given
+    
+    // when
+    float32_t output = getNeuronOutput( weights, bias, handler, NULL, inputSize );
+
+    // then
+    DOUBLES_EQUAL( 0.0f, output, 0.000000001f );
+}
+
 TEST( neuron, given_sigmoid_activation_function_when_calculating_neuron_output_then_output_is_passed_through_the_activation_function )
 {
     // given

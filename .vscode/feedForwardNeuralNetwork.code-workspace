@@ -73,5 +73,6 @@
 		"files.associations": {
 			"activationfunctions.h": "c"
 		},
+		"cmake.cmakePath": "/snap/cmake/current/bin/cmake",
 	}
 }
