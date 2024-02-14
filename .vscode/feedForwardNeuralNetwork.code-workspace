@@ -71,7 +71,8 @@
 		"editor.autoSurround": "languageDefined",
 		"editor.formatOnType": true,
 		"files.associations": {
-			"activationfunctions.h": "c"
+			"activationfunctions.h": "c",
+			"network.h": "c"
 		},
 		"cmake.cmakePath": "/snap/cmake/current/bin/cmake",
 		"terminal.integrated.env.linux": {

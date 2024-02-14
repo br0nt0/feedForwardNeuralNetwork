@@ -1,21 +1,18 @@
 /*******************************************************************************
- * @file	localTypes.h
- * @brief
+ * @file	network.h
+ * @brief	
  * @date	2024
  ******************************************************************************/
-#ifndef LOCALTYPES_H_
-#define LOCALTYPES_H_
+#ifndef NETWORK_H_
+#define NETWORK_H_
+/******************************************************************************/
+#include "localTypes.h"
 
 /******************************************************************************/
-#include "stdint.h"
-#include "stdbool.h"
-#include "stddef.h"
-#include "stdlib.h"
+typedef struct neuralNetworkStruct* neuralNetwork_t;
 
 /******************************************************************************/
-typedef float float32_t;
-typedef bool bool_t;
+neuralNetwork_t createNeuralNetwork( uint8_t layerNumber, const uint8_t* layerConfiguration );
+void destroyNeuralNetwork( neuralNetwork_t network );
 
-/******************************************************************************/
-
-#endif /* LOCALTYPES_H_ */
+#endif /* NETWORK_H_ */
