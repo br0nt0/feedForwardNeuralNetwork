@@ -4,4 +4,6 @@ add_library(${EXECUTABLE})
 target_include_directories(${EXECUTABLE} PRIVATE
                                 ${PROJECT_INCLUDE_DIR})
 target_sources(${EXECUTABLE} PRIVATE 
-                                ${PROJECT_DIR}/activationFunctions.c)
+                                ${PROJECT_DIR}/activationFunctions.c
+                                ${PROJECT_DIR}/neuron.c
+                                ${PROJECT_DIR}/network.c)
