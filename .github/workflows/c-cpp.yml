@@ -12,6 +12,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v4
-    - name: make tests
-      run: make all
+      - uses: actions/checkout@v4
+      - name: make tests
+        run: make all
+      - name: Generate a code coverage report
+        uses: threeal/gcovr-action@v1.0.0
+        with:
+          xml-out: coverage.xml
