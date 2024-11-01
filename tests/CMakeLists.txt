@@ -70,7 +70,7 @@ endif (UNIX)
 
 add_custom_command(OUTPUT run_gcovr_parser POST_BUILD
                     COMMAND gcovr   --root ${CMAKE_SOURCE_DIR}
-                                    --branches
+                                    --txt-metric branch
                                     --html-details
                                     --output ${CMAKE_BINARY_DIR}/coverage.html
                                     --cobertura ${CMAKE_BINARY_DIR}/coverage.xml
