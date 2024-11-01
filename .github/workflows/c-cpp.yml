@@ -15,7 +15,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: make tests
         run: make all
-      - name: Generate a code coverage report
-        uses: threeal/gcovr-action@v1.0.0
+      - name: Generate HTML Report
+        uses: threeal/gcovr-action@v1.1.0
         with:
-          xml-out: coverage.xml
+          html-out: coverage.html
+          html-details: true
+          html-title: My Project Test Coverage Report
+          html-theme: github.green
